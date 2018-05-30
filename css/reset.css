@@ -1,0 +1,50 @@
+html{
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #495060;
+  background-color: #f3f3f4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html,body,#app{
+  width: 100%;
+  height: 100%;
+  background: #f2f2f3;
+}
+
+html,body,header,h1,div,ul,li,aside,article,footer {
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  list-style-type: none;
+}
+input,button {
+  outline:0;
+}
+a{
+  text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Source Sans Pro',sans-serif;
+    font-weight: 400;
+}
+
+/* a:link,a:hover, a:visited, a:active {
+    color:#48576a;
+}
+  */
+/*清除浮动*/
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: " ";
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix{
+    *zoom: 1;
+}
+
