@@ -6,5 +6,5 @@ var User = /** @class */ (function () {
     }
     return User;
 }());
-var lily = new User('李孝香', 'lily-626@163.com', 33);
+var lily = new User('李孝香', 'lily-626@163.com', 31);
 console.log(lily);

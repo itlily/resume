@@ -15,5 +15,5 @@ class User implements UserInterface {
   }
 }
 
-let lily: User = new User('李孝香','lily-626@163.com',33)
+let lily: User = new User('李孝香','lily-626@163.com',31)
 console.log(lily)

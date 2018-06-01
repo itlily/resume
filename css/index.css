@@ -1,10 +1,1 @@
-body {
-  background-color: #ffc0cb;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-}
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLDBCQUEwQjtFQUMxQixxQkFBQTtFQUFBLHFCQUFBO0VBQUEsY0FBQTtFQUFBLDZCQUFBO0VBQUEsd0JBQUE7RUFBQSxxQkFBQTtDQUVEIiwiZmlsZSI6ImluZGV4LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImJvZHkge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZjMGNiO1xuICBkaXNwbGF5OiBmbGV4O1xuICB0cmFuc2l0aW9uOiBhbGwgMC41cztcbn0iXX0= */
+body{background-color:#ffc0cb;display:flex;border:1px solid #ffc0cb}

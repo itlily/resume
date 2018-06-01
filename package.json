@@ -1,0 +1,26 @@
+{
+  "name": "resume",
+  "version": "1.0.0",
+  "description": "introduce myself",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itlily/resume.git"
+  },
+  "author": "lily",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itlily/resume/issues"
+  },
+  "homepage": "https://github.com/itlily/resume#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jade": "^1.1.0",
+    "gulp-stylus": "^2.7.0",
+    "gulp-typescript": "^4.0.2",
+    "typescript": "^2.9.1"
+  }
+}
