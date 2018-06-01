@@ -11,5 +11,7 @@
     * postcss index.css -u autoprefixer --replace --watch --poll
     * postcss css/index.css -u autoprefixer --replace
     * .browserlistrc
+    * 7.0.1
+      * Drop dependency on gulp-util
 ## gulp
     gulpfile.js
