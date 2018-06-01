@@ -6,7 +6,6 @@
 ## js typescript
   - tsc src/index.ts -w --outFile js/index.js
 ## postcss
-  - English
   -  npm install postcss-cli autoprefixer
   -  postcss index.css -u autoprefixer --replace --watch --poll
   -   postcss css/index.css -u autoprefixer --replace
