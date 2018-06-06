@@ -1,17 +1,67 @@
 doctype html
 html(lang="en")
   head
-    title= pageTitle
-    script(type='text/javascript').
-      console.log(6)
-    link(rel='stylesheet',href='css/index.css')
+    title= name
+    meta(charset="utf-8")
+    link(rel="stylesheet", type="text/css" href="css/normalize.css")
+    link(rel="stylesheet", type="text/css" href="css/reset.css")
+    link(rel="stylesheet", type="text/css" href="css/index.css")
   body
-    h1 Jade - node template engine
-    #container.col
-      if youAreUsingJade
-        p You are amazing
-      else
-        p Get on it!
-      p.
-        Jade is a terse and simple templating language with a
-        strong focus on performance and powerful features.
+    #container
+      -var userInfo = {'name': 'lily','gender': '女','age': '31','account': '山东','living': '北京望京','married': '未婚','experience': '11','education': '大专', 'frontExperience': '6', 'phone': '18210350337', 'email': 'lily-626@163.com'}
+      h1.name #{userInfo.name}
+      .userinfo
+        ul
+          li #{userInfo.gender}
+          li #{userInfo.married}
+          li #{userInfo.age}岁
+          li 户口：#{userInfo.account}
+          li 现居住于： #{userInfo.living}
+          li #{userInfo.experience}年工作经验
+          li 学历：#{userInfo.education}
+          li 前端开发经验：#{userInfo.frontExperience}年
+          li 电话：#{userInfo.phone}
+          li 电子邮件：#{userInfo.email}
+      - var skills = ['1. 熟练使用HTML、CSS，能使用Bootstrap、Stylus、jQuery开发网页,并处理浏览器兼容性；', '2. 熟练掌握HTML5、CSS3新特性，并用来开发适配多种终端的Web应用；', '3. 熟练掌握原生JavaScript中的原型链、闭包、面向对象、Promise 开发的方式;', '4. 熟练掌握组件化、模块化SeaJS开发思路，熟练使用打包编译工具gulp、webpack；', '5. 使用vue、react全家桶开发过多个项目;', '6. 熟悉node.js开发，可高效开发WEB应用；', '7．有两年项目管理经验，使用过程管理、结果管理两种管理方式。', '8. 有相关的培训经验，使用构建式学习方法，对团队成员的技能进行职业规划。']
+      .skills
+        h2.title 职业技能
+        ul
+           each val, index in skills
+            li= val
+      -var experience = [{'website': 'http://www.newtranx.com/','companyName': '新译科技（北京）有限公司','time': '2017-至今','Introduction': '新译科技（NewTranx）成立于2014年，是一家利用人工智能和大数据技术提供互联网以及移动互联网服务与应用的高科技公司。 新译当前以智能翻译、语言资产、辅助翻译、检索、语音识别五大核心技术为基础，目前已推出了在线智能翻译、在线辅助翻译平台、互联网语言服务平台等一系列关于翻译领域的产品和服务。','duty': '前端项目负责人，主要负责后台业务开发，包括用户中心，CAT项目，辅助翻译等系统。'}]
+      -experience.push({'website': '','companyName': '宏远时代体育产业集团-体育科技公司','time': '2017-04-2017-07','Introduction': '宏远时代体育科技公司负责整个集团线上业务，包括宏远云、练客（直播）、全国赛事系统研发，是一个集线上、线下的大众体育培训平台。','duty': '前端项目负责人，主要负责后台、微信端、混合H5，包括前端人员管理、技术选型、技术培训等。'})
+      -experience.push({'website': 'http://mamashenghuo.com/index.html','companyName': '坚果（北京）科技有限公司','time': '2016－2017','Introduction': '主要业务有教育&游乐两条业务线，运用移动互联网技术，以关注孩子、服务家庭为宗旨，围绕怀孕生养、健康医疗、教育培训、家庭娱乐等领域，为千万妈妈提供优质的亲子教育、亲子游乐、亲子活动等服务。','duty': '前端项目负责人，主要负责微信端，包括前端人员管理、技术选型、产品迭代、产品更新。'})
+      -experience.push({'website': 'http://www.sinogeotech.cn/','companyName': '华夏吉泰（北京）科技有限公司','time': '2007－2016','Introduction': '主要业务包括石油天然气勘探、开发、开发技术研究、技术服务、产品研发、产品销售等。','duty': '在石油开发地质研究中心，负责公司网站开发相关业务的调研、前后台开发、项目运维等，并完善了公司各项业务的工作流程（包括岗位技能、业务工作流运转、绩效、日常管理），并参与了生产数据中心搭建以及后期运维。'})
+      .work-experience
+        h2.title 工作经历
+        ul
+         each val, index in experience
+           li
+            span.company-name='单位名称：'
+            a(href=val.website)= val.companyName 
+            span.time= val.time
+            h3= '公司简介：'
+            div= val.Introduction
+            h3= '主要职责：'
+            div= val.duty
+      .project-experience
+        -var experiences = [{'projectName': '新译用户中心 + 新译用户中心后台','projectTime': '2017-09-24-2017-11-20','technologyStack': 'Vue-Cli + Vue-Router+Axios+Element-Ui+Stylus','projectDescription': '新译用户中心用于展示新译科技的用户信息','myDuties':'自己一人，构建框架，分析业务逻辑，联调接口，配合测试，打包上线。包括项目搭建、 UI页面（24个）、功能交互（200多个）、接口连调（55个）。'}]
+        //- -experiences.push({})
+        h2.title 项目经验
+        ul
+           each val, index in experiences
+            li
+              div= '项目名称' + ':' + val.projectName
+              div= '技术栈' + ':' + val.technologyStack
+              div= '项目时间' + ':' + val.projectTime
+              div= '项目描述' + ':' + val.projectDescription
+              div= '我的职责' + ':' + val.myDuties
+      .self-evaluation
+        -var evaluations = ['1、热情随和，具有进取精神和团队精神，有较强的动手能力。', '2、积极参加各种技术大会，如：微软技术大会、vue.js开发者大会、Node party。', '3、喜欢钻研各种新技术，经常到github/mdn/stackoverflow学习代码。 ', '4、较强的事业心和责任心']
+        h2.title 自我评价
+        ul
+           each val, index in evaluations
+            li= val
+      footer
+block scripts
+  script(src='js/index.js')

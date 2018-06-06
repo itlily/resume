@@ -1,6 +1,7 @@
 # 使用技术 
 ## html jade 
   - jade -w src/index.jade --out /
+  p this is a link #[a(href="http://jade.terrynie.com")]
 ## css stylus
   - stylus -w src/index.styl -o css/index.css
 ## js typescript
@@ -12,3 +13,5 @@
   -   .browserlistrc
 ## gulp
   - gulpfile.js
+## watch
+  - browser-sync start --server --files "*.html,css/*.css,js/*.js"

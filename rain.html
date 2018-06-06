@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>rain </title>
+  <style> 
+      body {padding: 0; margin: 0;}
+      canvas {
+        display: block;
+        padding: 0;
+        margin: 0;
+      }
+  </style>
+</head>
+<body>
+  <canvas class="rain"></canvas>
+  <script>
+    var canvas = document.querySelector('.rain')
+    var aRain = [] //存放小雨滴
+    var w, h
+    ~~function setSize () {
+      window.onresize =arguments.callee
+       w = window.innerWidth
+       h = window.innerHeight
+      canvas.width = w
+      canvas.height = h
+    }()
+    //  2绘制
+    var canCon = canvas.getContext('2d')
+    // var y = 0 
+    // setInterval(function(){
+    //   canCon.beginPath() // 停止绘制
+    //   // canCon.clearRect(0,0,w,h)
+    //   //  蒙版
+    //   canCon.fillStyle = 'rgba(0,0,0,0.05)'
+    //   canCon.fillRect(0,0,w,h)
+
+    //   canCon.fillStyle = '#ffffff'
+    //   canCon.fillRect(100,y++,4,10)
+    // },1000/60)
+
+    function random (min,max) {
+      return Math.random() * (max-min) + min
+    }
+    function Rain () {}
+    Rain.prototype = {
+      init () {
+        this.x = random(0,w)
+        this.y = 0
+        this.vY = random(4,5) //雨滴每秒钟下的速度
+        this.vX = random(10,20)
+        this.h = random(0.8*h,0.9*h)//地板高度 h总度
+        console.log(0.8*h)
+        this.r = 1 //雨滴绽放的初始大小
+        this.vr = 1 //雨滴扩大的速度
+
+        
+      },
+      draw () {
+        //  小于地板高度
+        if(this.y<this.h) {
+        canCon.beginPath() // 停止绘制
+        canCon.fillStyle = '#ffffff'
+        canCon.fillRect(this.x,this.y++,4,10)
+      } else {
+        //  雨滴变成圆
+        canCon.beginPath() // 停止绘制
+        canCon.strokeStyle = "#fff"
+        canCon.arc(this.x,this.y,this.r,0,Math.PI*2)
+        canCon.stroke()
+      }
+        
+      },
+      move () {
+        // 变速 雨滴每秒钟 下降 4-5
+        if (this.y<this.h) {
+          this.y += this.vY
+          // this.x += this.vX
+        } else {
+          // 当圆的半径大于80时  圆消失
+          if (this.r < 60) {
+            this.r+= this.vr
+          } else {
+            this.init()
+          }
+        }
+        this.draw() //移动的雨
+        
+      }
+    }
+   
+    // 创建雨滴
+    function createRain (num) {
+      for(var i=0; i<num;i++) {
+        // 200后执行
+        setTimeout(function(){
+          var rain = new Rain() 
+          rain.init()
+          rain.draw()
+          aRain.push(rain) //存储雨滴
+        },200*i)
+      }
+    }
+    createRain(9)
+    //  每多长时间绘制一帧 雨滴动画
+    setInterval(function(){
+      canCon.fillStyle = 'rgba(0,0,0,0.05)'
+      canCon.fillRect(0,0,w,h)
+      for(var item of aRain) {
+        //  item 每一个元素
+        //  in item下标
+        item.move()
+      }
+    },1000/60)
+  </script>
+</body>
+</html>

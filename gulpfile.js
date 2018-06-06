@@ -5,7 +5,7 @@ var ts = require('gulp-typescript');
 
 gulp.task("jade", function(event) {
   return gulp.src('src/index.jade')
-  .pipe(jade({pretty: false}))
+  .pipe(jade({pretty: true}))
   .pipe(gulp.dest('./'))
 });
 gulp.task("stylus", function(event) {
