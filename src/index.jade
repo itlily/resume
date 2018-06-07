@@ -7,14 +7,16 @@ html(lang="en")
     link(rel="stylesheet", type="text/css" href="css/reset.css")
     link(rel="stylesheet", type="text/css" href="css/index.css")
   body
+    canvas#canA
     #container
       -var userInfo = {'name': 'lily','gender': '女','age': '31','account': '山东','living': '北京望京','married': '未婚','experience': '11','education': '大专', 'frontExperience': '6', 'phone': '18210350337', 'email': 'lily-626@163.com'}
       h1.name #{userInfo.name}
       .userinfo
+        h2 基本信息
         ul
-          li #{userInfo.gender}
-          li #{userInfo.married}
-          li #{userInfo.age}岁
+          li 性别：#{userInfo.gender}
+          li 婚否：#{userInfo.married}
+          li 年龄：#{userInfo.age}岁
           li 户口：#{userInfo.account}
           li 现居住于： #{userInfo.living}
           li #{userInfo.experience}年工作经验
@@ -40,8 +42,8 @@ html(lang="en")
             span.company-name='单位名称：'
             a(href=val.website)= val.companyName 
             span.time= val.time
-            h3= '公司简介：'
-            div= val.Introduction
+            //- h3= '公司简介：'
+            //- div= val.Introduction
             h3= '主要职责：'
             div= val.duty
       .project-experience

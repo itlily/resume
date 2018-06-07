@@ -1,4 +1,55 @@
+body
+  width 100%
+  height 100%
+  font-size 13px
+#canA
+  display block
 #container
-  width 1000px
-  margin 0 auto 
-  border 1px solid #cccccc
+  position absolute
+  left 50%
+  top 0%
+  transform translate(-50%,0%)
+  z-index 1000
+  background white
+  box-sizing border-box
+  h1
+    background #333333
+    height 100px
+    line-height 100px
+    padding-left 20px
+    color #fff
+  .userinfo,.skills,.work-experience,.project-experience,.self-evaluation
+    margin 20px
+    h2
+      width 100px
+      height 35px
+      line-height 35px
+      background #ff9933
+      text-align center
+      color #ffffff
+    ul
+      display flex
+      flex-wrap wrap 
+      li
+        padding-left 20px
+        width 33%
+        margin-top 10px
+  .skills,.work-experience,.project-experience,.self-evaluation
+    h2
+      background #ff6666
+    ul
+      li
+        width 100%
+  .work-experience
+    h2
+      background #99cc33
+  .project-experience
+    h2
+      background #99cccc
+    ul
+      li
+        div
+          line-height 28px
+  .self-evaluation
+    h2
+      background #ff6666
