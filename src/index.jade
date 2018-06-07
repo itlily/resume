@@ -3,13 +3,14 @@ html(lang="en")
   head
     title= name
     meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
     link(rel="stylesheet", type="text/css" href="css/normalize.css")
     link(rel="stylesheet", type="text/css" href="css/reset.css")
     link(rel="stylesheet", type="text/css" href="css/index.css")
   body
     canvas#canA
     #container
-      -var userInfo = {'name': 'lily','gender': '女','age': '31','account': '山东','living': '北京望京','married': '未婚','experience': '11','education': '大专', 'frontExperience': '6', 'phone': '18210350337', 'email': 'lily-626@163.com'}
+      -var userInfo = {'name': '李孝香','gender': '女','age': '31','account': '山东','living': '北京望京','married': '未婚','experience': '11','education': '大专', 'frontExperience': '6', 'phone': '18210350337', 'email': 'lily-626@163.com'}
       h1.name #{userInfo.name}
       .userinfo
         h2 基本信息
