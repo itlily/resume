@@ -6,16 +6,15 @@ if (window.DeviceMotionEvent) {
   window.addEventListener(
     'devicemotion',
     function() {
-      document.body.style.backgroundColor = 'pink'
-      // var acceleration = event.accelerationIncludingGravity
-      // x = acceleration.x
-      // y = acceleration.y
-      // if (Math.abs(x - lastX) > speed || Math.abs(y - lastY) > speed) {
-      //   document.body.style.backgroundColor =
-      //     color[Math.round(Math.random() * 10) % 6]
-      // }
-      // lastX = x
-      // lastY = y
+      var acceleration = event.accelerationIncludingGravity
+      x = acceleration.x
+      y = acceleration.y
+      if (Math.abs(x - lastX) > speed || Math.abs(y - lastY) > speed) {
+        document.body.style.backgroundColor =
+          color[Math.round(Math.random() * 10) % 6]
+      }
+      lastX = x
+      lastY = y
     },
     false
   )
