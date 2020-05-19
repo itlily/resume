@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/js/WebRTCAPI.min.js"></script>
+</head>
+<body>
+  <div class="live-video">
+    <!-- "push_status": "0",  //1：推流中；0未推流 -->
+       <div id="video-section">
+         <div id="remote-video-wrap" >
+         </div>
+       </div>
+     </div>
+     <input type="text" name="" id="streamText" style="width: 1000px;">
+     <button onClick="addStream()">拉流</button>
+</body>
+<script>
+  TXWebRTCAPI.on('onAddStream', onAddStream)
+  function addStream () {
+    // webrtc://live.weizaojiao.cn/live/54ced55be7349d1f330cfa913b5085e0 
+      var streamurl =document.getElementById('streamText').value
+      console.log(streamurl,111)
+      var streamId = getStreamId(streamurl)
+      var video = document.getElementById(streamId)
+      if (!video) {
+        video = createVideoElement(streamId)
+      }
+      TXWebRTCAPI.pullStream(streamurl, video.id)
+  }
+     function getStreamId(url) {
+      var parseStreamid = /^(?:webrtc:\/\/)(?:[0-9.\-A-Za-z_]+)(?:\/)(?:[0-9.\-A-Za-z_]+)(?:\/)([^?#]*)(?:\?*)(?:[^?#]*)/
+      var result = parseStreamid.exec(url)
+      if (result) return result[1]
+      return null
+    }
+    function createVideoElement(id) {
+      var videoDiv = document.createElement('div')
+      videoDiv.innerHTML = `<video id="${id}" autoplay unmuted preload playsinline controls width="480" height="320"></video>` //width="480" height="320"
+      document.querySelector('#remote-video-wrap').appendChild(videoDiv)
+      return document.getElementById(id)
+    }
+    function onAddStream(e) {
+      // console.log(`[client_demo]onAddStream, streamId:${e.streamId}`, e.stream);
+      var streamId = e.streamId
+      var player = document.getElementById(streamId)
+      if (!player) {
+        player = createVideoElement(streamId)
+      }
+      // this.SETOPTIONS({ player })
+      player.srcObject = e.stream
+      //video.muted = true
+      player.autoplay = true
+      // video.requestFullscreen()
+      player.playsinline = true
+      // console.log(player)
+      var playPromise = player.play()
+      if (playPromise) {
+        playPromise
+          .then(() => {
+            console.log(`play ok!`);
+           
+          })
+          .catch(() => {
+            console.log(`play failed!`)
+          })
+      }
+    }
+</script>
+</html>
